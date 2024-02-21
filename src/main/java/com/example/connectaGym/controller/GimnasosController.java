@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping(path="/gimnasos")
 @RestController
+@RequestMapping(path="/gimnasos")
 public class GimnasosController {
 
     @Autowired

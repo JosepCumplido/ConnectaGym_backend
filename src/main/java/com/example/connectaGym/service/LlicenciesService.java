@@ -1,6 +1,5 @@
 package com.example.connectaGym.service;
 
-import com.example.connectaGym.controller.exceptions.ServiceException;
 import com.example.connectaGym.entity.Llicencies;
 import com.example.connectaGym.repository.LlicenciesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,24 +32,16 @@ public class LlicenciesService {
     }
 
     public Llicencies afegirLlicencia(Llicencies ll) {
-        try {
-            this.llicenciesRepository.save(ll);
-            return ll;
-        } catch(Exception ex) {
-            throw new ServiceException(ex.getMessage());
-        }
+        this.llicenciesRepository.save(ll);
+        return ll;
     }
 
     public Llicencies deleteLlicencia(Long id) {
-        try {
             Optional<Llicencies> optionalLlicencies = this.llicenciesRepository.findById(id);
             if (optionalLlicencies.isPresent()) {
                 Llicencies llicencies = optionalLlicencies.get();
                 this.llicenciesRepository.deleteById(id);
                 return llicencies;
-            } else throw new ServiceException("Llicencia no trobada");
-        } catch (Exception ex) {
-            throw new ServiceException(ex.getMessage());
-        }
+            } else return null;
     }
 }

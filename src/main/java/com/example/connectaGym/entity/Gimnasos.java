@@ -3,8 +3,8 @@ package com.example.connectaGym.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "gimnasos")
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"id"}))
+@Entity
+@Table(name = "gimnasos")
 public class Gimnasos {
 
     @Id
